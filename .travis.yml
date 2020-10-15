@@ -38,6 +38,7 @@ before_install:
     - eval "${MATRIX_EVAL}"
 
 script:
+  - cd $TRAVIS_BUILD_DIR/:wq
   - make -f makeTravis.mk 
   - ./bin/helloTravis 
   - make clean -f makeTravis.mk
