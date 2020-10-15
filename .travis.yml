@@ -39,7 +39,7 @@ before_install:
 
 script:
   - cd $TRAVIS_BUILD_DIR/
-  - mkdir build/travis
+  - mkdir -p build/travis
   - make -f makeTravis.mk 
   - ./bin/helloTravis 
   - make clean -f makeTravis.mk
