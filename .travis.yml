@@ -44,7 +44,9 @@ script:
   - ./bin/helloTravis 
   - make clean -f makeTravis.mk
   - mkdir -p build/test
+  - sudo apt-get install tree
   - git submodule init && git submodule update
+  - tree .
   - cd test
   - make -f makeTest.mk
   - ./../bin/string-compare
