@@ -36,17 +36,17 @@ matrix:
 
 before_install:
     - eval "${MATRIX_EVAL}"
+    - git submodule update --init
 
 script:
   - cd $TRAVIS_BUILD_DIR/
-  - mkdir -p build/travis
-  - make -f makeTravis.mk 
-  - ./bin/helloTravis 
-  - make clean -f makeTravis.mk
+  - cmake --version
   - mkdir -p build/test
-  - git submodule init && git submodule update
+  - cmake test/lib/googletest
+  - sudo env "PATH=$PATH" cmake --build test/lib/googletest --target install
+  - ls
   - cd test
-  - make -f makeTest.mk
+  - sudo make -f makeTest.mk
   - ./../bin/string-compare
-  - make clean -f makeTest.mk/test
+  - make clean -f makeTest.mk
 
