@@ -8,28 +8,6 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5
-      env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
-
-    # works on Precise and Trusty
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-6
-      env:
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-
-    # works on Precise and Trusty
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
             - g++-7
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
@@ -46,17 +24,11 @@ script:
 #  - ./bin/helloTravis 
 #  - make clean -f makeTravis.mk
   - mkdir -p build/test
-  - sudo apt-get install tree
-  - tree test/
   - cmake test/lib/googletest
-  - cmake test/lib/googletest/CMakeLists.txt
-  - cd test/lib/googletest
+  - sudo cmake --build test/lib/googletest --target install
   - ls
-  - cmake .
-  - cmake --build . --target install
-  - cd ../../
-  - ls
-  - make -f makeTest.mk
+  - cd test
+  - sudo make -f makeTest.mk
   - ./../bin/string-compare
   - make clean -f makeTest.mk
 
