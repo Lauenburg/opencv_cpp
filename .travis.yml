@@ -47,7 +47,12 @@ script:
   - mkdir -p build/test
   - sudo apt-get install tree
   - tree test/
-  - cd test
+  - cd test/lib/googletest
+  - ls
+  - sudo cmake .
+  - sudo cmake --build . --target install
+  - cd ../../
+  - ls
   - make -f makeTest.mk
   - ./../bin/string-compare
   - make clean -f makeTest.mk
