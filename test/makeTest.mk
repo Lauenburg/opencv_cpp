@@ -1,5 +1,5 @@
 GOOGLE_TEST_LIB = gtest
-GOOGLE_TEST_INCLUDE = /Users/lauenburg/Privat/CodeProjects/opencv_cpp/test/lib/googletest
+GOOGLE_TEST_INCLUDE = lib/googletest
 
 G++ = g++
 G++_FLAGS = -std=c++11 -c -Wall -I $(GOOGLE_TEST_INCLUDE)
