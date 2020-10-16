@@ -40,6 +40,7 @@ before_install:
 
 script:
   - cd $TRAVIS_BUILD_DIR/
+  - cmake --version
 #  - mkdir -p build/travis
 #  - make -f makeTravis.mk 
 #  - ./bin/helloTravis 
@@ -47,10 +48,12 @@ script:
   - mkdir -p build/test
   - sudo apt-get install tree
   - tree test/
+  - cmake test/lib/googletest
+  - cmake test/lib/googletest/CMakeLists.txt
   - cd test/lib/googletest
   - ls
-  - sudo cmake .
-  - sudo cmake --build . --target install
+  - cmake .
+  - cmake --build . --target install
   - cd ../../
   - ls
   - make -f makeTest.mk
