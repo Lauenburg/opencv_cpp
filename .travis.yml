@@ -25,7 +25,7 @@ script:
 #  - make clean -f makeTravis.mk
   - mkdir -p build/test
   - cmake test/lib/googletest
-  - sudo cmake --build test/lib/googletest --target install
+  - sudo env "PATH=$PATH" cmake --build test/lib/googletest --target install
   - ls
   - cd test
   - sudo make -f makeTest.mk
