@@ -48,5 +48,5 @@ script:
   - cd test
   - make -f makeTest.mk
   - ./../bin/string-compare
-  - make clean -f makeTest.mk/test
+  - make clean -f makeTest.mk
 
