@@ -19,16 +19,8 @@ before_install:
 script:
   - cd $TRAVIS_BUILD_DIR/
   - cmake --version
-#  - mkdir -p build/travis
-#  - make -f makeTravis.mk 
-#  - ./bin/helloTravis 
-#  - make clean -f makeTravis.mk
-  - mkdir -p build/test
-  - cmake test/lib/googletest
-  - sudo env "PATH=$PATH" cmake --build test/lib/googletest --target install
-  - ls
-  - cd test
-  - sudo make -f makeTest.mk
-  - ./../bin/string-compare
-  - make clean -f makeTest.mk
+  - mkdir -p build/travis
+  - make -f makeTravis.mk 
+  - ./bin/helloTravis 
+  - make clean -f makeTravis.mk
 
