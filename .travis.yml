@@ -36,6 +36,7 @@ matrix:
 
 before_install:
     - eval "${MATRIX_EVAL}"
+    - git submodule update --init
 
 script:
   - cd $TRAVIS_BUILD_DIR/
@@ -45,9 +46,7 @@ script:
 #  - make clean -f makeTravis.mk
   - mkdir -p build/test
   - sudo apt-get install tree
-  - git submodule add https://github.com/google/googletest.git ./test/lib/googletest
-  - git submodule init && git submodule update
-  - tree .
+  - tree test/
   - cd test
   - make -f makeTest.mk
   - ./../bin/string-compare
